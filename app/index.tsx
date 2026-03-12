@@ -1,38 +1,21 @@
-import * as React from 'react';
-import { View } from 'react-native';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Text } from '@/components/ui/text';
+import { View } from "react-native";
+import { Text } from "@/components/ui/text"
+import { Checkbox } from "@/components/ui/checkbox"
 
 export default function HomeScreen() {
   return (
-    <View className="bg-background flex-1 items-center justify-center gap-5 p-6">
-      <Card className="w-full max-w-sm rounded-2xl p-6">
-        <CardHeader className="items-center">
-          <CardTitle variant="h1" className="text-brand-primary pb-2 text-center">
-            Hall Pass
-          </CardTitle>
-          <Text variant="muted" className="text-muted-foreground">
-            {new Date().toLocaleTimeString()}
-          </Text>
-        </CardHeader>
+    <View className="flex flex-1 py-32 bg-background">
+      <Text className="text-foreground text-center">Hello, world!</Text>
 
-        <CardContent>
-          <View className="flex-row justify-center gap-3">
-            <View className="items-center">
-              <Text className="text-muted-foreground text-sm">An app for</Text>
-              <CardTitle variant="h3" className="text-foreground font-semibold">
-                Students
-              </CardTitle>
-            </View>
-          </View>
-        </CardContent>
-
-        <CardFooter className="flex-col gap-3">
-          <View className="flex-row items-center overflow-hidden">
-            <Text variant="code">Update me with your own code</Text>
-          </View>
-        </CardFooter>
-      </Card>
+      <View className="flex flex-row mx-5 gap-5 py-4">
+        <View className="flex justify-center items-center ">
+          <Checkbox className="border-2"></Checkbox>
+        </View>
+        <View className="border-b border-foreground-transparent pb-3">
+          <Text className="text-foreground">Submit Assignment</Text>
+          <Text className="text-foreground-transparent">Due: Oct 20</Text>
+        </View>
+      </View>
     </View>
   );
 }
