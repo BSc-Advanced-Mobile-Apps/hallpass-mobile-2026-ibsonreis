@@ -7,11 +7,11 @@ export default function HomeScreen() {
     <View className="flex flex-1 py-32 bg-background">
       <Text className="text-foreground text-center">Hello, world!</Text>
 
-      <View className="flex flex-row mx-5 gap-5 py-4">
+      <View className="w-full flex flex-row mx-5 gap-5 py-4">
         <View className="flex justify-center items-center ">
           <Checkbox className="border-2"></Checkbox>
         </View>
-        <View className="border-b border-foreground-transparent pb-3">
+        <View className="border-b border-foreground-transparent pb-">
           <Text className="text-foreground">Submit Assignment</Text>
           <Text className="text-foreground-transparent">Due: Oct 20</Text>
         </View>
