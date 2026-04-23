@@ -1,7 +1,5 @@
 import { View } from 'react-native';
 import { Text } from '@/components/ui/text';
-import { Checkbox } from '@/components/ui/checkbox';
-import { useState } from 'react';
 import Task from '@/components/task';
 
 export interface ITask {
@@ -19,7 +17,7 @@ export default function HomeScreen() {
 
   return (
     <View className="bg-background flex flex-1 py-32">
-      <Text className="text-foreground text-center">Hello, world!</Text>
+      <Text className="text-foreground text-center">HallPass!</Text>
       <Task task={task} />
     </View>
   );
