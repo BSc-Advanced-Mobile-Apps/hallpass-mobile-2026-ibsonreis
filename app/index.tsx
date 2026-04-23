@@ -3,9 +3,9 @@ import { Text } from '@/components/ui/text';
 import Task from '@/components/task';
 
 export interface ITask {
-  title: String;
-  category: String;
-  isChecked: Boolean;
+  title: string;
+  category: string;
+  isChecked: boolean;
 }
 
 export default function HomeScreen() {
