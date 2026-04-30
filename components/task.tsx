@@ -3,16 +3,7 @@ import { Checkbox } from './ui/checkbox';
 import { TouchableOpacity, View } from 'react-native';
 import { useState } from 'react';
 import { Text } from '@/components/ui/text';
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-  DialogTrigger,
-  DialogDescription,
-} from '@/components/ui/dialog';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import React from 'react';
 import TaskDialogue from '@/components/TaskDialogue';
 
