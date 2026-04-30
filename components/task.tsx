@@ -9,15 +9,20 @@ import TaskDialogue from '@/components/TaskDialogue';
 
 interface TaskProps {
   task: ITask;
+  onUpdate?: (task: ITask) => void;
 }
 
-export default function Task({ task: initialTask }: TaskProps) {
+export default function Task({ task: initialTask, onUpdate }: TaskProps) {
   const [task, setTask] = React.useState(initialTask);
   const [showDialog, setShowDialog] = React.useState(false);
 
   const handleSetChecked = () => {
     const nextChecked = !task.isChecked;
-    setTask({ ...task, isChecked: nextChecked });
+    const updatedTask = { ...task, isChecked: !task.isChecked };
+    setTask(updatedTask);
+    if (onUpdate) {
+      onUpdate(updatedTask);
+    }
   };
 
   return (
