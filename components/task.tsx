@@ -37,8 +37,8 @@ export default function Task({ task: initialTask, onUpdate, onDelete }: TaskProp
         <Pressable
           className="h-full items-end justify-center rounded-lg bg-red-500 px-5"
           onPress={() => onDelete?.(task.id)}>
-          {/* <Text className="font-semibold text-white">Delete</Text> */}
-          <CircleX size={50} color="White" />
+          <Text className="font-semibold text-white">Delete</Text>
+          <CircleX size={5} color="White" />
         </Pressable>
       </Animated.View>
     );

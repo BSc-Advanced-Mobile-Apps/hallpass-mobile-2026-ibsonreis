@@ -14,7 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 
 import { ITask } from '@/app';
-import { Plus } from 'lucide-react-native';
+import { CircleCheck, Plus } from 'lucide-react-native';
 
 interface TaskDialogProps {
   onSave?: (task: ITask) => void;
@@ -61,6 +61,7 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
 
       <View>
         <Input value={editedTitle} placeholder="Task Name" onChangeText={handleUpdateTitle} />
+        {/* CircleCheck size={50} color="white" */}
       </View>
       <View>
         <Input value={editedCategory} placeholder="Notes" onChangeText={handleUpdateCategory} />

@@ -68,10 +68,13 @@ export default function HomeScreen() {
 
   return (
     <View className="bg-background flex flex-1 justify-between">
-      <View className="flex flex-row justify-center">
-        <Text className="text-foreground mb-4 pt-20 text-6xl font-bold">HallPass</Text>
-        <CircleCheck size={50} color="White" />
+      <View className="mb-4 flex flex-row items-center justify-center pt-20">
+        <Text className="text-foreground text-6xl font-bold">HallPass</Text>
+        <View className="ml-5">
+          <CircleCheck size={50} color="white" />
+        </View>
       </View>
+
       <ScrollView
         contentContainerStyle={{
           paddingHorizontal: 24,
