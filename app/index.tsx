@@ -4,6 +4,7 @@ import Task from '@/components/Task';
 import { AddTask } from '@/components/AddTask';
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { CircleCheck } from 'lucide-react-native';
 
 // Key for storing tasks in AsyncStorage
 const TASKS_STORAGE_KEY = 'hallpass_tasks';
@@ -59,10 +60,17 @@ export default function HomeScreen() {
     saveTasks(updatedTasks);
   };
 
+  const handleDeleteTask = (id: number) => {
+    const updated = tasks.filter((t) => t.id !== id);
+    setTasks(updated);
+    saveTasks(updated);
+  };
+
   return (
     <View className="bg-background flex flex-1 justify-between">
       <View className="flex flex-row justify-center">
-        <Text className="text-foreground pt-20 text-6xl font-bold">HallPass</Text>
+        <Text className="text-foreground mb-4 pt-20 text-6xl font-bold">HallPass</Text>
+        <CircleCheck size={50} color="White" />
       </View>
       <ScrollView
         contentContainerStyle={{
@@ -74,7 +82,14 @@ export default function HomeScreen() {
         ) : tasks.length === 0 ? (
           <Text className="text-foreground text-center text-lg">Please add your first task...</Text>
         ) : (
-          tasks.map((task) => <Task key={task.id} task={task} onUpdate={handleTaskUpdate} />)
+          tasks.map((task) => (
+            <Task
+              key={task.id}
+              task={task}
+              onUpdate={handleTaskUpdate}
+              onDelete={handleDeleteTask}
+            />
+          ))
         )}
       </ScrollView>
       <View className="relative flex items-center">

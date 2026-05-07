@@ -14,6 +14,7 @@ import { Input } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 
 import { ITask } from '@/app';
+import { Plus } from 'lucide-react-native';
 
 interface TaskDialogProps {
   onSave?: (task: ITask) => void;
@@ -58,9 +59,14 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
         <DialogDescription>Create a new task here...</DialogDescription>
       </DialogHeader>
 
-      <View className="gap-4">
+      <View>
         <Input value={editedTitle} placeholder="Task Name" onChangeText={handleUpdateTitle} />
+      </View>
+      <View>
         <Input value={editedCategory} placeholder="Notes" onChangeText={handleUpdateCategory} />
+      </View>
+      <View>
+        <Input value={editedCategory} placeholder="Due Date" onChangeText={handleUpdateCategory} />
       </View>
 
       <DialogFooter className="mt-4 flex flex-row gap-2">
@@ -70,7 +76,8 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
           <Text className="text-brand-primary">Cancel</Text>
         </Button>
         <Button className="bg-brand-primary w-1/2 flex-1 rounded-3xl" onPress={handleSave}>
-          <Text>Save changes</Text>
+          <Text>Add</Text>
+          <Plus size={5} color="black" />
         </Button>
       </DialogFooter>
     </DialogContent>
