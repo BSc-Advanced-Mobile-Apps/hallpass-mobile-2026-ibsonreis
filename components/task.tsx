@@ -6,7 +6,7 @@ import { Text } from '@/components/ui/text';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import React from 'react';
 import TaskDialogue from '@/components/TaskDialogue';
-import { Swipeable } from 'react-native-gesture-handler';
+//import Swipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
 import { CircleX } from 'lucide-react-native';
 
 interface TaskProps {
@@ -37,40 +37,40 @@ export default function Task({ task: initialTask, onUpdate, onDelete }: TaskProp
         <Pressable
           className="h-full items-end justify-center rounded-lg bg-red-500 px-5"
           onPress={() => onDelete?.(task.id)}>
-          <Text className="font-semibold text-white">Delete</Text>
-          <CircleX size={5} color="White" />
+          <CircleX size={50} color="White" />
         </Pressable>
       </Animated.View>
     );
   };
 
   return (
-    <Swipeable renderRightActions={renderRightActions}>
-      <Dialog open={showDialog} onOpenChange={setShowDialog}>
-        <DialogTrigger asChild>
-          <TouchableOpacity className="flex w-full flex-row">
-            <View className="flex h-full w-24 px-8 py-5">
-              <Checkbox
-                className="border-foreground checked:bg-foreground"
-                checked={task.isChecked}
-                onCheckedChange={handleSetChecked}
-              />
-            </View>
+    //<Swipeable renderRightActions={renderRightActions}>
+    <Dialog open={showDialog} onOpenChange={setShowDialog}>
+      <DialogTrigger testID="task-trigger" asChild>
+        <TouchableOpacity className="flex w-full flex-row">
+          <View className="flex h-full w-24 px-8 py-5">
+            <Checkbox
+              testID="checkbox"
+              className="border-foreground checked:bg-foreground"
+              checked={task.isChecked}
+              onCheckedChange={handleSetChecked}
+            />
+          </View>
 
-            <View className="border-foreground-transparent flex h-full flex-1 gap-1 border-b py-4">
-              <Text className="text-foreground text-xl">{task.title}</Text>
-              <Text className="text-foreground-transparent text-xl">{task.category}</Text>
-            </View>
-          </TouchableOpacity>
-        </DialogTrigger>
+          <View className="border-foreground-transparent flex h-full flex-1 gap-1 border-b py-4">
+            <Text className="text-foreground text-xl">{task.title}</Text>
+            <Text className="text-foreground-transparent text-xl">{task.category}</Text>
+          </View>
+        </TouchableOpacity>
+      </DialogTrigger>
 
-        <TaskDialogue
-          task={task}
-          setTask={setTask}
-          setShowDialog={setShowDialog}
-          showDialog={showDialog}
-        />
-      </Dialog>
-    </Swipeable>
+      <TaskDialogue
+        task={task}
+        setTask={setTask}
+        setShowDialog={setShowDialog}
+        showDialog={showDialog}
+      />
+    </Dialog>
+    //</Swipeable>
   );
 }

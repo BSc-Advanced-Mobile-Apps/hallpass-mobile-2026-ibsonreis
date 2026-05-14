@@ -83,6 +83,9 @@
     "preset": "react-native",
     "testsMatch": [
       "**/tests/**/*.test.js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
     ]
   }
 }

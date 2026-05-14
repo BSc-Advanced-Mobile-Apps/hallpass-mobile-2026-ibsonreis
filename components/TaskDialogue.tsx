@@ -55,7 +55,7 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
   return (
     <DialogContent className="border-foreground-transparent w-lg rounded-2xl border-4">
       <DialogHeader>
-        <DialogTitle>Add Task</DialogTitle>
+        <DialogTitle testID="dialogue-title">Add Task</DialogTitle>
         <DialogDescription>Create a new task here...</DialogDescription>
       </DialogHeader>
 

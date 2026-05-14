@@ -1,6 +1,7 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
 import Task from '../components/Task';
 
+//Tests for tasks
 describe('Task', () => {
   test('renders a task', () => {
     const task = {
@@ -54,15 +55,29 @@ describe('Task', () => {
 
     expect(checkbox).not.toBeChecked();
   });
-});
 
-// describe('TaskDialog', () => {
-//   test('displays TaskDialouge component when pressed', async () => {
-//     const task = {
-//       id: 1,
-//       title: 'Test Task',
-//       category: 'Test Category',
-//       isChecked: false,
-//     };
-//   });
-// });
+  test('displays TaskDialouge component when pressed', async () => {
+    const task = {
+      id: 1,
+      title: 'Test Task',
+      category: 'Test Category',
+      isChecked: true,
+    };
+
+    render(
+      <>
+        <Task task={task} />
+      </>
+    );
+
+    expect(screen.queryByTestId('dialogue-title')).toBeNull();
+
+    const DialougeTrigger = await screen.findByTestId('task-trigger');
+
+    const user = userEvent.setup();
+    await user.press(DialougeTrigger);
+
+    const TaskDialouge = screen.findByTestId('dialogue-title'); // Find the checkbox element
+    expect(TaskDialouge).toBeTruthy();
+  });
+});
